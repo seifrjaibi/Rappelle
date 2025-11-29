@@ -1,0 +1,72 @@
+<div class="container" class="form-control">
+	<h1 st> Rappelle angular </h1>
+<div placment="right">
+
+	<!-- Carousel -------------------------------------------------------------------------------------------------->
+	<!---@if (images) {}-->
+	<ngb-carousel>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+				<img src="/assets/image/1.png" alt="Random second slide" />
+			</div>
+			<div class="carousel-caption">
+				<h3>First slide label</h3>
+				<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+				<img [src]="'/assets/image/2.jpg'" alt="Random second slide" />
+			</div>
+			<div class="carousel-caption">
+				<h3>Second slide label</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+				<img [src]="'/assets/image/3.jpg'" alt="Random third slide" />
+			</div>
+			<div class="carousel-caption">
+				<h3>Third slide label</h3>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+			</div>
+		</ng-template>
+	</ngb-carousel>
+
+
+
+
+
+
+	
+	<!-- Carousel -------------------------------------------------------------------------------------------------->
+	<h2><span class="badge text-bg-info">Liste des contacts</span></h2>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Search</span>
+  <input [(ngModel)]="Keyword" (input)="searchContacts(Keyword)" placeholder="Rechercher un contact..."  placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+	
+	<ul><button (click)="ShowUnshowForm()" type="button" class="btn btn-success">Ajouter Contact</button>
+		<br>
+		<!-- afficher la liste des contacts -->
+		<ng-container *ngFor="let i of contacts; ">
+			<li> <strong>{{ i.nom }} </strong>{{ i.email}}</li>
+			<button (click)="EditContact(i)"  type="button" class="btn btn-warning">edit</button>
+			<button (click)="DeleteContact(i.id!)" type="button" class="btn btn-danger">delete</button>
+
+
+		</ng-container>	
+	</ul>
+		<!-- -------------------------------------------------------------------------------------------------->
+
+	<div *ngIf="showForm">
+	<app-contact-form-component [contact]="selectedContact" (submitForm)="onSubmit($event)">
+		
+	</app-contact-form-component>
+			<button (click)="showForm= false"  type="button" class="btn btn-warning">cancel</button>
+
+	</div>
+</div>
+</div>

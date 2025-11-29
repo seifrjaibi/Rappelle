@@ -1,0 +1,28 @@
+:host {
+	display: block;
+	width: 100%;
+	overflow-x: hidden; /* évite un scroll horizontal si l'image dépasse */
+}
+
+/* Règles pour que le carousel occupe toute la largeur de l'écran
+	 et que chaque image ait la même hauteur et soit recadrée proprement. */
+.picsum-img-wrapper {
+	width: 100vw;        /* largeur = largeur de la fenêtre */
+	height: 60vh;        /* hauteur responsive : 60% de la hauteur de l'écran. Ajuste selon besoin */
+	max-height: 800px;   /* optionnel : limite la hauteur sur grand écran */
+	overflow: hidden;    /* cache les parties débordantes de l'image */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.picsum-img-wrapper img {
+	width: 100%;         /* occupe toute la largeur du wrapper */
+	height: 100%;        /* occupe toute la hauteur définie */
+	object-fit: cover;   /* recadre l'image pour remplir le conteneur sans déformer */
+	display: block;
+}
+
+/* Si tu veux que le carousel soit pleine hauteur (écran entier), utilise :
+	 .picsum-img-wrapper { height: 100vh; } */
+
