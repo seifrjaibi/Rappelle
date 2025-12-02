@@ -36,3 +36,5 @@ services:
       - mon-projet-net
 volumes:
   db_data:
+networks:
+  mon-projet-net:
