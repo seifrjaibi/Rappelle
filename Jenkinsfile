@@ -13,7 +13,7 @@ pipeline {
             steps {
                 dir('backend-rappelle'){
                 // Compile ton backend Spring Boot
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }}
 
@@ -21,8 +21,8 @@ pipeline {
             steps {
                 dir('RappelleAngularFrontEnd'){
                 // Installe les dépendances et build Angular
-                sh 'npm install'
-                sh 'ng build'
+                bat 'npm install'
+                bat 'ng build'
             }}
         }
 
@@ -30,14 +30,14 @@ pipeline {
             steps {
                     dir('backend-rappelle'){
                 // Exécute les tests unitaires backend
-                sh 'mvn test'
+                bat 'mvn test'
             }}
         }
 
         stage('Docker Build') {
             steps {
                 // Construit tes images Docker
-                sh 'docker-compose build'
+                bat 'docker-compose build'
             }
         }
     }
