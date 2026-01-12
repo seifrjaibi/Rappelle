@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools { 
-        maven 'Maven 3.9.11'
-        sonarQubeScanner 'SonarQube'
+    
     }
     stages {
         stage('Checkout') {
